@@ -124,10 +124,7 @@ helfy/
 This is the recommended way to run the complete stack.
 
 ```bash
-# 1. Copy environment file
-cp .env.example .env
-
-# 2. Build and start all services
+ Build and start all services
 docker compose up --build
 ```
 
