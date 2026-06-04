@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   mysql:
     image: mysql:8.0
@@ -47,8 +45,6 @@ services:
     restart: unless-stopped
     depends_on:
       - backend
-    env_file:
-      - .env
     ports:
       - '${FRONTEND_PORT:-3000}:80'
     networks:
