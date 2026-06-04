@@ -1,5 +1,7 @@
 FROM node:20-alpine
 
+RUN apk add --no-cache openssl
+
 WORKDIR /app
 
 # Install dependencies first (layer cached unless package.json changes)
@@ -16,4 +18,4 @@ COPY . .
 EXPOSE 5000
 
 # Run migrations, seed catalogue data, then start the server
-CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node src/server.js"]
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npx prisma db seed && node src/server.js"]
