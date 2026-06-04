@@ -13,7 +13,6 @@ const LIST_SELECT = {
   name: true,
   price: true,
   stockQuantity: true,
-  categoryId: true,
   createdAt: true,
   category: {
     select: { id: true, name: true, slug: true },
@@ -93,13 +92,15 @@ const getProducts = async ({ page, limit, search, categoryId, minPrice, maxPrice
     prisma.product.count({ where }),
   ]);
 
+  const totalPages = Math.ceil(total / limit) || 1;
+
   return {
     products: products.map(toListItem),
     meta: {
-      page,
+      page: Math.min(page, totalPages),
       limit,
       total,
-      totalPages: Math.ceil(total / limit) || 1,
+      totalPages,
     },
   };
 };

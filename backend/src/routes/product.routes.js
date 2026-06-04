@@ -34,7 +34,6 @@ const router = Router();
  *         name:          { type: string,  example: Wireless Headphones }
  *         price:         { type: string,  example: '299.99' }
  *         stockQuantity: { type: integer, example: 45 }
- *         categoryId:    { type: integer, example: 1 }
  *         createdAt:     { type: string,  format: date-time }
  *         category:
  *           $ref: '#/components/schemas/ProductCategory'

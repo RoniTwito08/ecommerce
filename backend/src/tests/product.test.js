@@ -144,8 +144,10 @@ describe('GET /api/products', () => {
       .query({ categoryId: testCategory.id });
 
     expect(res.status).toBe(200);
+    // categoryId is not in the list payload — use the embedded category object
     res.body.data.forEach((p) => {
-      expect(p.categoryId).toBe(testCategory.id);
+      expect(p.category.id).toBe(testCategory.id);
+      expect(p.categoryId).toBeUndefined();
     });
   });
 
