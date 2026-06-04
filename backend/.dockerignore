@@ -1,0 +1,32 @@
+# Environment files — must never be baked into the image
+.env
+.env.*
+!.env.example
+
+# Dependencies — rebuilt inside the image via npm ci
+node_modules
+
+# Prisma-generated client — rebuilt via npx prisma generate
+node_modules/.prisma
+
+# Test artefacts
+coverage
+.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# IDE and OS files
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Local dev config
+*.local
