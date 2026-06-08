@@ -11,6 +11,26 @@ const { prisma } = require('./config/database');
 const server = app.listen(env.PORT, () => {
   logger.info(`🚀  Server started on port ${env.PORT}  [${env.NODE_ENV}]`);
   logger.info(`📚  Swagger docs → http://localhost:${env.PORT}/api/docs`);
+
+  logger.info(
+    [
+      '',
+      '==================================================',
+      '🚀 Helfy is running successfully',
+      '==================================================',
+      '',
+      'Frontend:',
+      `👉 http://localhost:3000`,
+      '',
+      'Swagger:',
+      `👉 http://localhost:${env.PORT}/api/docs`,
+      '',
+      'API:',
+      `👉 http://localhost:${env.PORT}/api`,
+      '',
+      '==================================================',
+    ].join('\n')
+  );
 });
 
 // ─── Graceful shutdown ───────────────────────────────────────────────────────
