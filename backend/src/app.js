@@ -16,6 +16,10 @@ const { globalRateLimiter } = require('./middlewares/rateLimiter.middleware');
 
 const app = express();
 
+// nginx sits in front of Express and sets X-Forwarded-For; express-rate-limit
+// reads that header to identify clients, so Express must trust the first proxy.
+app.set('trust proxy', 1);
+
 // ─── Security headers ────────────────────────────────────────────────────────
 app.use(helmet());
 
